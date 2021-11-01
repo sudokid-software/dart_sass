@@ -178,12 +178,15 @@ defmodule DartSass do
       into: IO.stream(:stdio, :line),
       stderr_to_stdout: true
     ]
+    |> IO.inspect(label: "Opts")
 
     {path, args} = sass(args ++ extra_args)
+                   |> IO.inspect(label: "{path, args}")
 
     path
     |> System.cmd(args, opts)
     |> elem(1)
+    |> IO.inspect(label: "cmd")
   end
 
   @doc """
