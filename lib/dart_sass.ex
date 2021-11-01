@@ -233,6 +233,8 @@ defmodule DartSass do
         File.cp!(Path.join([tmp_dir, "dart-sass", "src", "dart"]), vm_path)
         File.cp!(Path.join([tmp_dir, "dart-sass", "src", "sass.snapshot"]), snapshot_path)
 
+        IO.inspect(installed?(), label: "!!Installed!!")
+
       _ ->
         File.cp!(Path.join([tmp_dir, "dart-sass", "sass"]), sass_path)
     end
